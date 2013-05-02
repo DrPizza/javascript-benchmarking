@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 {
 	high_resolution_timer timer;
 
-	const unsigned N              = max(0, (argc > 1) ? atoi(argv[1]) : 0);
+	const unsigned N              = max(0, (argc > 1) ? atoi(argv[1]) : 16000);
 	const unsigned width          = N;
 	const unsigned height         = N;
 	const unsigned max_x          = (width + 7) / 8;
