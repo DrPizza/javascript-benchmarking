@@ -1,10 +1,24 @@
+/* The Computer Language Benchmarks Game
+   http://benchmarksgame.alioth.debian.org/
+
+   converted to C++ from D by Rafal Rusin
+   modified by Vaclav Haisman
+   modified by The Anh to compile with g++ 4.3.2
+   modified by Branimir Maksimovic
+   modified by Kim Walisch
+   modified by Peter Bright
+*/
+
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
+#include <iostream>
 #include <algorithm>
 #include <vector>
 #include <numeric>
 #include <initializer_list>
+
+#include "timer.hpp"
 
 namespace {
 
@@ -29,7 +43,7 @@ struct IUB
 	}
 };
 
-// VS2012 November CTP has compiler support for initializer_list but no library support
+// VS2012 November CTP has compiler support for initializer_list but no library support.
 template<typename C>
 C initialize(std::initializer_list<typename C::value_type> items)
 {
@@ -38,6 +52,7 @@ C initialize(std::initializer_list<typename C::value_type> items)
 
 std::vector<IUB> iub = initialize<std::vector<IUB>>(
 {
+	// it also seems wonky at initializer lists of aggregates
 	IUB(0.27f, 'a'),
 	IUB(0.12f, 'c'),
 	IUB(0.12f, 'g'),
@@ -83,6 +98,8 @@ public:
 		return alu[i++];
 	}
 private:
+	Repeat& operator=(const Repeat&);
+
 	const char* alu;
 	const std::size_t size;
 	std::size_t i;
@@ -101,12 +118,14 @@ public:
 		return i[count].c;
 	}
 private:
+	Random& operator=(const Random&);
+
 	const std::vector<IUB>& i;
 };
 
 void make_cumulative(std::vector<IUB>& i)
 {
-	std::partial_sum(i.begin(), i.end(), i.begin(),
+	std::partial_sum(std::begin(i), std::end(i), std::begin(i),
 			[] (IUB l, IUB r) -> IUB { r.p += l.p; return r; });
 }
 
@@ -134,7 +153,8 @@ void make(const char* id, const char* desc, int n, F functor)
 
 int main(int argc, char *argv[])
 {
-	const int n = argc > 1 ? atoi(argv[1]) : 1;
+	high_resolution_timer timer;
+	const int n = argc > 1 ? atoi(argv[1]) : 100000;
 
 	make_cumulative(iub);
 	make_cumulative(homosapiens);
@@ -142,4 +162,8 @@ int main(int argc, char *argv[])
 	make("ONE"  , "Homo sapiens alu"      , n * 2, Repeat(alu));
 	make("TWO"  , "IUB ambiguity codes"   , n * 3, Random(iub));
 	make("THREE", "Homo sapiens frequency", n * 5, Random(homosapiens));
+
+	high_resolution_timer::duration dur = timer.pulse();
+
+	std::cerr << std::chrono::duration_cast<std::chrono::microseconds>(dur).count() << std::endl;
 }
