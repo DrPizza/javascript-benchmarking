@@ -221,7 +221,7 @@ void reverse_complement(const char* filename) {
 int main(int argc, char *argv[])
 {
 	high_resolution_timer timer;
-	const int n = argc > 1 ? atoi(argv[1]) : 25000000;
+	const int n = argc > 1 ? atoi(argv[1]) : 25 * 1000;
 	const char* filename = "fasta.txt";
 	fasta(n, filename);
 	reverse_complement(filename);

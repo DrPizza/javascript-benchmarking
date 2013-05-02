@@ -6,7 +6,8 @@ CXXFLAGS=-std=c++11 -stdlib=libc++ -O3 -I$(INCLUDES)
 EMCC=../emscripten/emcc
 EMCCFLAGS=-std=c++11 -O2 -I$(INCLUDES) --llvm-lto 1
 
-JSFLAGS=--closure 1
+#JSFLAGS=--closure 1
+JSFLAGS=
 ASMJSFLAGS=-s ASM_JS=1
 
 SOURCES=$(wildcard *-generic/*.cpp)
