@@ -4,8 +4,9 @@
 #include <chrono>
 
 #ifdef _WIN32
-#include <SDKDDKVer.h>
 #include <Windows.h>
+#else
+#include <sys/time.h>
 #endif
 
 template<typename clock_t>
@@ -59,6 +60,31 @@ private:
 };
 
 typedef timer<qpc_clock> high_resolution_timer;
+
+#elif defined(EMSCRIPTEN)
+
+#include <iostream>
+
+// emscripten's clock_gettime is broken (returns constant zero),
+// but gettimeofday works. Unfortunately, the built-in clocks use
+// the former, not the latter.
+
+struct gtod_clock {
+	typedef std::chrono::microseconds duration;
+	typedef duration::rep rep;
+	typedef duration::period period;
+	typedef std::chrono::time_point<gtod_clock> time_point;
+	static const bool is_monotonic = false;
+	static const bool is_steady = false; // I assume
+
+	static time_point now() {
+		::timeval t = {0};
+		::gettimeofday(&t, nullptr);
+		return time_point(duration(static_cast<rep>(((t.tv_sec * period::den) / period::num) + t.tv_usec)));
+	}
+};
+
+typedef timer<gtod_clock> high_resolution_timer;
 
 #else
 
