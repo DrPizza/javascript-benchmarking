@@ -4,8 +4,9 @@ CXX=clang++
 CXXFLAGS=-std=c++11 -stdlib=libc++ -O3 -I$(INCLUDES)
 
 EMCC=../emscripten/emcc
-EMCCFLAGS=-std=c++11 -O2 -I$(INCLUDES) --closure 1 --llvm-lto 1
+EMCCFLAGS=-std=c++11 -O2 -I$(INCLUDES) --llvm-lto 1
 
+JSFLAGS=--closure 1
 ASMJSFLAGS=-s ASM_JS=1
 
 SOURCES=$(wildcard *-generic/*.cpp)
@@ -18,7 +19,7 @@ HTMLS=$(foreach SUFFIX, $(SUFFIXES), $(addsuffix $(SUFFIX), $(PROGRAMS)))
 	$(EMCC) $(EMCCFLAGS) $(ASMJSFLAGS) $< -o $@
 
 %-js.html: %.cpp
-	$(EMCC) $(EMCCFLAGS) $< -o $@
+	$(EMCC) $(EMCCFLAGS) $(JSFLAGS) $< -o $@
 
 define PROGRAM_template
 $(1)-all: $(1) $(1)-js.html $(1)-asmjs.html
