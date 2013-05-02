@@ -8,6 +8,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nbody-generic", "n-body-gen
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "spectral-norm-generic", "spectral-norm-generic\spectral-norm-generic.vcxproj", "{A2DDBAAB-BEC4-4A5A-A7BE-10C5C78E1AEA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test-generic", "test-generic\test-generic.vcxproj", "{3BC8C81F-5CE1-4682-BCAF-37AB1C495A25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -38,6 +40,12 @@ Global
 		{A2DDBAAB-BEC4-4A5A-A7BE-10C5C78E1AEA}.Release|Win32.ActiveCfg = Release|Win32
 		{A2DDBAAB-BEC4-4A5A-A7BE-10C5C78E1AEA}.Release|Win32.Build.0 = Release|Win32
 		{A2DDBAAB-BEC4-4A5A-A7BE-10C5C78E1AEA}.Release|Win32.Deploy.0 = Release|Win32
+		{3BC8C81F-5CE1-4682-BCAF-37AB1C495A25}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3BC8C81F-5CE1-4682-BCAF-37AB1C495A25}.Debug|Win32.Build.0 = Debug|Win32
+		{3BC8C81F-5CE1-4682-BCAF-37AB1C495A25}.Debug|Win32.Deploy.0 = Debug|Win32
+		{3BC8C81F-5CE1-4682-BCAF-37AB1C495A25}.Release|Win32.ActiveCfg = Release|Win32
+		{3BC8C81F-5CE1-4682-BCAF-37AB1C495A25}.Release|Win32.Build.0 = Release|Win32
+		{3BC8C81F-5CE1-4682-BCAF-37AB1C495A25}.Release|Win32.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
