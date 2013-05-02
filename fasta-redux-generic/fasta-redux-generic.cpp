@@ -1,3 +1,15 @@
+/* The Computer Language Benchmarks Game
+   http://benchmarksgame.alioth.debian.org/
+
+   converted to C++ from D by Rafal Rusin
+   modified by Vaclav Haisman
+   modified by The Anh to compile with g++ 4.3.2
+   modified by Branimir Maksimovic
+   modified by Kim Walisch
+   modified by Peter Bright
+*/
+
+
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -143,8 +155,7 @@ void make(const char* id, const char* desc, int n, F functor)
 int main(int argc, char *argv[])
 {
 	high_resolution_timer timer;
-
-	const int n = argc > 1 ? atoi(argv[1]) : 1;
+	const int n = argc > 1 ? atoi(argv[1]) : 100000;
 
 	make_cumulative(iub);
 	make_cumulative(homosapiens);
@@ -155,5 +166,5 @@ int main(int argc, char *argv[])
 
 	high_resolution_timer::duration dur = timer.pulse();
 
-	std::cerr << std::chrono::duration_cast<std::chrono::nanoseconds>(dur).count() << std::endl;
+	std::cerr << std::chrono::duration_cast<std::chrono::microseconds>(dur).count() << std::endl;
 }
