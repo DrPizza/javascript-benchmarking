@@ -4,12 +4,15 @@
  *
  * contributed by Jeffrey Beu
  * modified by Danny Angelo Carminati Grein
- *  
+ * modified by Peter Bright
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <iostream>
+
+#include "timer.hpp"
 
 namespace 
 {
@@ -26,7 +29,9 @@ struct tuple<H,T...>
   tail snd;
  
   tuple(const head& a,const tail& b):fst(a),snd(b){}
-  tuple() = delete;
+
+private:
+  tuple();
 };
 
 tuple<> construct_tuple()
@@ -235,15 +240,15 @@ struct
 
 }
 
-int main(int,char** argv)
+int main(int argc,char** argv)
 {
- 
+  high_resolution_timer timer;
   auto solar_system = construct_tuple(sun,jupiter,saturn,uranus,neptune);
   offset(solar_system);
 
   printf ("%.9f\n", energy(solar_system));
   
-  int n = atoi(argv[1]);
+  const int n = argc > 1 ? atoi(argv[1]) : 50000000;
   
   for (int i = 1; i <= n; i++)
   {
@@ -251,6 +256,10 @@ int main(int,char** argv)
   }
 
   printf ("%.9f\n", energy(solar_system));
+
+  high_resolution_timer::duration dur = timer.pulse();
+
+  std::cerr << std::chrono::duration_cast<std::chrono::microseconds>(dur).count() << std::endl;
 
   return 0;
 }

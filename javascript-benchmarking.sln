@@ -4,6 +4,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fasta-redux-generic", "fast
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fasta-redux-optimized", "fasta-redux-optimized\fasta-redux-optimized.vcxproj", "{22941814-5A50-40D6-9FD3-4C19184C768D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "n-body-generic", "n-body-generic\n-body-generic.vcxproj", "{B7B0BCDF-2702-44FD-9D0B-35A26BC69B69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -22,6 +24,12 @@ Global
 		{22941814-5A50-40D6-9FD3-4C19184C768D}.Release|Win32.ActiveCfg = Release|Win32
 		{22941814-5A50-40D6-9FD3-4C19184C768D}.Release|Win32.Build.0 = Release|Win32
 		{22941814-5A50-40D6-9FD3-4C19184C768D}.Release|Win32.Deploy.0 = Release|Win32
+		{B7B0BCDF-2702-44FD-9D0B-35A26BC69B69}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B7B0BCDF-2702-44FD-9D0B-35A26BC69B69}.Debug|Win32.Build.0 = Debug|Win32
+		{B7B0BCDF-2702-44FD-9D0B-35A26BC69B69}.Debug|Win32.Deploy.0 = Debug|Win32
+		{B7B0BCDF-2702-44FD-9D0B-35A26BC69B69}.Release|Win32.ActiveCfg = Release|Win32
+		{B7B0BCDF-2702-44FD-9D0B-35A26BC69B69}.Release|Win32.Build.0 = Release|Win32
+		{B7B0BCDF-2702-44FD-9D0B-35A26BC69B69}.Release|Win32.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
