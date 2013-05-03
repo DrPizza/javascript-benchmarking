@@ -11,10 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{ED340F12-4074-4F99-8380-049F4FBF1874}</ProjectGuid>
+    <ProjectGuid>{F42E9B85-38ED-4B9E-8A9E-FA0034FA06B1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>mandelbrotoptimized</RootNamespace>
-    <ProjectName>mandelbrot-optimized</ProjectName>
+    <RootNamespace>meteorcontestgeneric</RootNamespace>
+    <ProjectName>meteor-contest-generic</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -71,7 +71,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="mandelbrot-optimized.cpp" />
+    <ClCompile Include="meteor-contest-generic.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

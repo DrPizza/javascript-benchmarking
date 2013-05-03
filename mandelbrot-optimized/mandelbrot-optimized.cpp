@@ -19,6 +19,7 @@
 //   - removed some includes
 
 #define _CRT_SECURE_NO_WARNINGS 1
+#define _SCL_SECURE_NO_WARNINGS 1
 
 #include <cstdio>
 #include <cstdlib>

@@ -22,6 +22,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fannkuch-redux-generic", "f
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fannkuch-redux-optimized", "fannkuch-redux-optimized\fannkuch-redux-optimized.vcxproj", "{CCCB5CA3-43FC-4061-81A7-824142F2AD14}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "meteor-contest-generic", "meteor-contest-generic\meteor-contest-generic.vcxproj", "{F42E9B85-38ED-4B9E-8A9E-FA0034FA06B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -94,6 +96,12 @@ Global
 		{CCCB5CA3-43FC-4061-81A7-824142F2AD14}.Release|Win32.ActiveCfg = Release|Win32
 		{CCCB5CA3-43FC-4061-81A7-824142F2AD14}.Release|Win32.Build.0 = Release|Win32
 		{CCCB5CA3-43FC-4061-81A7-824142F2AD14}.Release|Win32.Deploy.0 = Release|Win32
+		{F42E9B85-38ED-4B9E-8A9E-FA0034FA06B1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F42E9B85-38ED-4B9E-8A9E-FA0034FA06B1}.Debug|Win32.Build.0 = Debug|Win32
+		{F42E9B85-38ED-4B9E-8A9E-FA0034FA06B1}.Debug|Win32.Deploy.0 = Debug|Win32
+		{F42E9B85-38ED-4B9E-8A9E-FA0034FA06B1}.Release|Win32.ActiveCfg = Release|Win32
+		{F42E9B85-38ED-4B9E-8A9E-FA0034FA06B1}.Release|Win32.Build.0 = Release|Win32
+		{F42E9B85-38ED-4B9E-8A9E-FA0034FA06B1}.Release|Win32.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
