@@ -18,6 +18,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mandelbrot-generic", "mande
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mandelbrot-optimized", "mandelbrot-optimized\mandelbrot-optimized.vcxproj", "{ED340F12-4074-4F99-8380-049F4FBF1874}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fannkuch-redux-generic", "fannkuch-redux-generic\fannkuch-redux-generic.vcxproj", "{6658C1FA-B63F-41C7-8D2E-3898BA61A04D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fannkuch-redux-optimized", "fannkuch-redux-optimized\fannkuch-redux-optimized.vcxproj", "{CCCB5CA3-43FC-4061-81A7-824142F2AD14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -78,6 +82,18 @@ Global
 		{ED340F12-4074-4F99-8380-049F4FBF1874}.Release|Win32.ActiveCfg = Release|Win32
 		{ED340F12-4074-4F99-8380-049F4FBF1874}.Release|Win32.Build.0 = Release|Win32
 		{ED340F12-4074-4F99-8380-049F4FBF1874}.Release|Win32.Deploy.0 = Release|Win32
+		{6658C1FA-B63F-41C7-8D2E-3898BA61A04D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6658C1FA-B63F-41C7-8D2E-3898BA61A04D}.Debug|Win32.Build.0 = Debug|Win32
+		{6658C1FA-B63F-41C7-8D2E-3898BA61A04D}.Debug|Win32.Deploy.0 = Debug|Win32
+		{6658C1FA-B63F-41C7-8D2E-3898BA61A04D}.Release|Win32.ActiveCfg = Release|Win32
+		{6658C1FA-B63F-41C7-8D2E-3898BA61A04D}.Release|Win32.Build.0 = Release|Win32
+		{6658C1FA-B63F-41C7-8D2E-3898BA61A04D}.Release|Win32.Deploy.0 = Release|Win32
+		{CCCB5CA3-43FC-4061-81A7-824142F2AD14}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CCCB5CA3-43FC-4061-81A7-824142F2AD14}.Debug|Win32.Build.0 = Debug|Win32
+		{CCCB5CA3-43FC-4061-81A7-824142F2AD14}.Debug|Win32.Deploy.0 = Debug|Win32
+		{CCCB5CA3-43FC-4061-81A7-824142F2AD14}.Release|Win32.ActiveCfg = Release|Win32
+		{CCCB5CA3-43FC-4061-81A7-824142F2AD14}.Release|Win32.Build.0 = Release|Win32
+		{CCCB5CA3-43FC-4061-81A7-824142F2AD14}.Release|Win32.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

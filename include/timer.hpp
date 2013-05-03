@@ -4,6 +4,8 @@
 #include <chrono>
 
 #ifdef _WIN32
+#define NOMINMAX
+#define STRICT
 #include <Windows.h>
 #else
 #include <sys/time.h>
