@@ -40,16 +40,17 @@
 /*     program constitutes acceptance of these licensing restrictions.   */
 /*  5. Absolutely no warranty is expressed or implied.                   */
 /*-----------------------------------------------------------------------*/
-# include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <stddef.h>
+#include <math.h>
+#include <float.h>
+#include <limits.h>
 #ifndef WIN32
-# include <unistd.h>
-#endif
-# include <math.h>
-# include <float.h>
-# include <limits.h>
-#ifndef WIN32
-# include <sys/time.h>
+#include <unistd.h>
+#include <sys/time.h>
+#else
+#include <Windows.h>
 #endif
 
 /*-----------------------------------------------------------------------
@@ -181,9 +182,14 @@
 #define STREAM_TYPE double
 #endif
 
-static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
-			b[STREAM_ARRAY_SIZE+OFFSET],
-			c[STREAM_ARRAY_SIZE+OFFSET];
+// it turns out that massive static arrays make Emscripten blow up, as it 
+// encodes their initializers naively. A ten million entry array gets a 
+// ten million entry initializer.
+//static STREAM_TYPE	a[STREAM_ARRAY_SIZE+OFFSET],
+//			b[STREAM_ARRAY_SIZE+OFFSET],
+//			c[STREAM_ARRAY_SIZE+OFFSET];
+
+static STREAM_TYPE* a, *b, *c;
 
 static double	avgtime[4] = {0}, maxtime[4] = {0},
 		mintime[4] = {FLT_MAX,FLT_MAX,FLT_MAX,FLT_MAX};
@@ -218,6 +224,15 @@ main()
     intptr_t	j;
     STREAM_TYPE		scalar;
     double		t, times[4][NTIMES];
+
+    a = calloc(STREAM_ARRAY_SIZE + OFFSET, sizeof(STREAM_TYPE));
+    b = calloc(STREAM_ARRAY_SIZE + OFFSET, sizeof(STREAM_TYPE));
+    c = calloc(STREAM_ARRAY_SIZE + OFFSET, sizeof(STREAM_TYPE));
+    if(!a || !b || !c)
+    {
+        printf("Memory allocation failed.\n");
+        return -1;
+    }
 
     /* --- SETUP --- determine precision and check timing --- */
 
@@ -380,6 +395,9 @@ main()
     checkSTREAMresults();
     printf(HLINE);
 
+    free(a);
+    free(b);
+    free(c);
     return 0;
 }
 
