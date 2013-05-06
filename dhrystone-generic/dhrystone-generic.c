@@ -8,6 +8,8 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #ifdef WIN32
 #include <Windows.h>
+#else
+#include <sys/time.h>
 #endif
 
 #ifdef CNNT
