@@ -32,6 +32,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "binary-trees-optimized", "b
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stream-generic", "stream-generic\stream-generic.vcxproj", "{2F2F226D-32FC-4657-B7AC-4D3F732C3DE1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stream-optimized", "stream-optimized\stream-optimized.vcxproj", "{B6EF1883-6A03-4035-A75C-513936725B21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -134,6 +136,12 @@ Global
 		{2F2F226D-32FC-4657-B7AC-4D3F732C3DE1}.Release|Win32.ActiveCfg = Release|Win32
 		{2F2F226D-32FC-4657-B7AC-4D3F732C3DE1}.Release|Win32.Build.0 = Release|Win32
 		{2F2F226D-32FC-4657-B7AC-4D3F732C3DE1}.Release|Win32.Deploy.0 = Release|Win32
+		{B6EF1883-6A03-4035-A75C-513936725B21}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B6EF1883-6A03-4035-A75C-513936725B21}.Debug|Win32.Build.0 = Debug|Win32
+		{B6EF1883-6A03-4035-A75C-513936725B21}.Debug|Win32.Deploy.0 = Debug|Win32
+		{B6EF1883-6A03-4035-A75C-513936725B21}.Release|Win32.ActiveCfg = Release|Win32
+		{B6EF1883-6A03-4035-A75C-513936725B21}.Release|Win32.Build.0 = Release|Win32
+		{B6EF1883-6A03-4035-A75C-513936725B21}.Release|Win32.Deploy.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

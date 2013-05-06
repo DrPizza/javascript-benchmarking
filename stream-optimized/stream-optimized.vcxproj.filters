@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stream-generic.c">
+    <ClCompile Include="stream-optimized.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
