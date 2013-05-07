@@ -2,8 +2,8 @@ INCLUDES=./include
 
 CXX=clang++
 CXXFLAGS=-std=c++11 -stdlib=libc++ -O3 -I$(INCLUDES)
-CPP=clang
-CPPFLAGS=-O3 -I$(INCLUDES)
+CC=clang
+CFLAGS=-lm -O3 -I$(INCLUDES)
 
 EMCC=../emscripten/emcc
 EMCCFLAGS=--jcache -O2 -I$(INCLUDES) --llvm-lto 1
