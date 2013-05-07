@@ -149,17 +149,8 @@ void Proc0()
 
 	int         endit;
 	unsigned long count = 10;
-	FILE        *Ap;
 
 	/* Initializations */
-
-	if ((Ap = fopen("Dhry.txt","a+")) == NULL)
-	{
-		printf("Can not open Dhry.txt\n\n");
-		printf(" Press Enter\n\n");
-		i = getchar();
-		exit(1);
-	}
 
 	/***********************************************************************
 	*         Change for compiler and optimisation used                   *
@@ -174,21 +165,6 @@ void Proc0()
 	strcpy(PtrGlb->StringComp, "DHRYSTONE PROGRAM, SOME STRING");
 	strcpy(String1Loc, "DHRYSTONE PROGRAM, 1'ST STRING");
 
-/*
-	getDetails();
-	for (i=1; i<10; i++)
-	{
-		printf("%s\n", configdata[i]);
-	}
-	printf("\n");
-
-	fprintf (Ap, " #####################################################\n\n");                     
-	for (i=1; i<10; i++)
-	{
-		fprintf(Ap, "%s \n", configdata[i]);
-	}
-	fprintf (Ap, "\n");
-*/
 	printf("##########################################\n"); 
 
 	printf ("\n");
@@ -276,30 +252,6 @@ void Proc0()
 	printf ("VAX  MIPS rating =                          ");
 	printf ("%12.2lf \n",Vax_Mips);
 	printf ("\n");
-
-
-	/************************************************************************
-	*                Add results to output file Dhry.txt                   *
-	************************************************************************/
-	/*
-	local_time();
-	*/
-	fprintf (Ap, " #####################################################\n\n");                     
-
-	{
-		time_t t;
-		char timeday[30];
-		t = time(NULL);
-		sprintf(timeday, "%s", asctime(localtime(&t)));
-		fprintf (Ap, " Dhrystone Benchmark  1.1 %s via C/C++ %s\n", options, timeday);
-	}
-	fprintf (Ap, " VAX MIPS rating:      %12.2lf\n\n",Vax_Mips);
-
-
-	if (Array2Glob[8][7] == Loops + 10) fprintf (Ap, " Correct result\n\n");
-	else                                fprintf (Ap, " WRONG result\n\n");
-
-	fclose(Ap);    
 }
 
 void Proc1(RecordPtr PtrParIn)
