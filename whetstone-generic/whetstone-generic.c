@@ -256,31 +256,6 @@ int main(int argc, char *argv[])
 	char compiler[80], options[256], general[10][80] = {" "};
 	char endit[80];
 	int i;
-/*
-	int nopause = 1;
-
-	if (argc > 1)
-	{
-		switch (argv[1][0])
-		{
-		case 'N':
-			nopause = 0;
-			break;
-		case 'n':
-			nopause = 0;
-			break;
-		}
-	}
-	*/
-
-	/*
-	getDetails();
-	for (i=1; i<10; i++)
-	{
-	printf("%s\n", configdata[i]);
-	}
-	local_time();
-	*/
 
 	printf("\n");
 	printf("##########################################\n");
@@ -356,13 +331,7 @@ int main(int argc, char *argv[])
 	printf ("\n");
 	printf ("A new results file, whets.txt,  will have been created in the same\n");
 	printf ("directory as the .EXE files, if one did not already exist.\n\n");
-/*
-	if (nopause)
-	{
-		printf(" Press Enter\n\n");
-		i = getchar();
-	}  
-	*/
+
 	return 0;             
 }
 
