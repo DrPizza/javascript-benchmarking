@@ -33,7 +33,6 @@ typedef char elem;
 ALIGN_PREFIX(16) elem s[16] ALIGN_SUFFIX(16);
 
 int maxflips = 0;
-int max_n;
 int odd = 0;
 int checksum = 0;
 // naieve method of rotation using basic sisd instructions for sanity's sake
@@ -173,25 +172,20 @@ void tk(int n) {
 	}
 }
 
-int main(int argc, char **v) {
+int main(int argc, char **argv) {
 	high_resolution_timer timer;
 
 	int i;
 	popmasks();
-	if (argc < 2) {
-		fprintf(stderr, "usage: %s number\n", v[0]);
-		exit(1);
+	int n = (argc > 1) ? atoi(argv[1]) : 12;
+	if(n < 3 || n > 16)
+	{
+		printf("n should be between [3 and 16]\n");
+		return 0;
 	}
-
-	max_n = atoi(v[1]);
-	if (max_n < 3 || max_n > 15) {
-		fprintf(stderr, "range: must be 3 <= n <= 12\n");
-		exit(1);
-	}
-
-	for (i = 0; i < max_n; i++) s[i] = i;
-	tk(max_n);
-	printf("%d\nPfannkuchen(%d) = %d\n", checksum, max_n, maxflips);
+	for (i = 0; i < n; i++) s[i] = i;
+	tk(n);
+	printf("%d\nPfannkuchen(%d) = %d\n", checksum, n, maxflips);
 
 	high_resolution_timer::duration dur = timer.pulse();
 

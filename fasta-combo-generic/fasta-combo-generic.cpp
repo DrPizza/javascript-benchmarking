@@ -200,7 +200,8 @@ void print_revcomp(Header const& header, Segment const& seg, std::ostream& out =
 void reverse_complement(const char* filename) {
 	std::ios_base::sync_with_stdio(false);
 
-	std::ifstream input(filename, std::ios_base::in | std::ios_base::binary);
+	std::ifstream input(filename, std::ios_base::binary);
+	std::ofstream output("fasta-reverse.txt", std::ios_base::binary);
 
 	Segment line, segment; 
 	Header header;
@@ -210,14 +211,14 @@ void reverse_complement(const char* filename) {
 		if(line[0] == '>')
 		{
 			if (!segment.empty())
-				print_revcomp(header, segment);
+				print_revcomp(header, segment, output);
 			header = line;
 			segment.clear();
 		}
 		else
 			segment += line;
 	}
-	print_revcomp(header, segment);
+	print_revcomp(header, segment, output);
 }
 
 namespace x = boost::xpressive;

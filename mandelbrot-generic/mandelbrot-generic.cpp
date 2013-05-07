@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 	const double   limit          = 2.0;
 	const double   limit_sq       = limit * limit;
 
-	FILE* out = (argc == 3) ? fopen(argv[2], "wb") : stdout;
+	FILE* out = fopen("mb.pbm", "wb");
 
 	vector<Byte> buffer(height * max_x);
 
@@ -105,11 +105,6 @@ int main(int argc, char* argv[])
 
 	fprintf(out, "P4\n%u %u\n", width, height);
 	fwrite(&buffer[0], buffer.size(), 1, out);
-
-	if (out != stdout)
-	{
-		fclose(out);
-	}
 
 	high_resolution_timer::duration dur = timer.pulse();
 
