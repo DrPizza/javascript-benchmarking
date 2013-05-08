@@ -10,7 +10,7 @@ EMCCFLAGS=--jcache -O2 -I$(INCLUDES) --llvm-lto 1
 EMCCCXXFLAGS=-std=c++11
 EMCCCPPFLAGS=
 
-JSFLAGS=--closure 1 -s TOTAL_MEMORY=536870912
+JSFLAGS=--closure 1 -s ASM_JS=0 -s TOTAL_MEMORY=536870912
 ASMJSFLAGS=-s ASM_JS=1 -s TOTAL_MEMORY=536870912
 
 SOURCES=$(wildcard *-generic/*.cpp) $(wildcard *-generic/*.c)
