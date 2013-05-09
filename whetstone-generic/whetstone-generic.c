@@ -177,7 +177,7 @@
 
 /*PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION PRECISION*/
 
-/* #define DP */
+#define DP
 
 #ifdef DP 
 #define SPDP double
@@ -617,8 +617,3 @@ void pout(char title[18], float ops, int type, SPDP checknum,
 
 	return;
 }
-
-
-
-
-

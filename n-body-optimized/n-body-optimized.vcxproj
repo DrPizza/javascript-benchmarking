@@ -11,10 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B7B0BCDF-2702-44FD-9D0B-35A26BC69B69}</ProjectGuid>
+    <ProjectGuid>{8D229396-F0EB-4D16-931B-86D244936576}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>nbodygeneric</RootNamespace>
-    <ProjectName>n-body-generic</ProjectName>
+    <RootNamespace>nbodyoptimized</RootNamespace>
+    <ProjectName>n-body-optimized</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -42,6 +42,7 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\common-properties.props" />
     <Import Project="..\release-properties.props" />
+    <Import Project="..\optimized-properties.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -71,7 +72,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="n-body-generic.cpp" />
+    <ClCompile Include="n-body-optimized.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
