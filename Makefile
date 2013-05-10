@@ -8,7 +8,7 @@ CFLAGS=-lm -O3 -I$(INCLUDES)
 EMCC=../emscripten/emcc
 EMCCFLAGS=--jcache -O2 -I$(INCLUDES) --llvm-lto 1
 EMCCCXXFLAGS=-std=c++11
-EMCCCPPFLAGS=
+EMCCCFLAGS=
 
 JSFLAGS=--closure 1 -s ASM_JS=0 -s TOTAL_MEMORY=536870912
 ASMJSFLAGS=-s ASM_JS=1 -s TOTAL_MEMORY=536870912
@@ -16,7 +16,7 @@ ASMJSFLAGS=-s ASM_JS=1 -s TOTAL_MEMORY=536870912
 SOURCES=$(wildcard *-generic/*.cpp) $(wildcard *-generic/*.c)
 PROGRAMS=$(basename $(SOURCES))
 
-SUFFIXES=-js.html -asmjs.html
+SUFFIXES=-js.html -asmjs.html .js -asm.js
 HTMLS=$(foreach SUFFIX, $(SUFFIXES), $(addsuffix $(SUFFIX), $(PROGRAMS)))
 
 %-asmjs.html: %.cpp
@@ -26,13 +26,26 @@ HTMLS=$(foreach SUFFIX, $(SUFFIXES), $(addsuffix $(SUFFIX), $(PROGRAMS)))
 	$(EMCC) $(EMCCFLAGS) $(EMCCCXXFLAGS) $(JSFLAGS) $< -o $@
 
 %-asmjs.html: %.c
-	$(EMCC) $(EMCCFLAGS) $(EMCCCPPFLAGS) $(ASMJSFLAGS) $< -o $@
+	$(EMCC) $(EMCCFLAGS) $(EMCCCFLAGS) $(ASMJSFLAGS) $< -o $@
 
 %-js.html: %.c
-	$(EMCC) $(EMCCFLAGS) $(EMCCCPPFLAGS) $(JSFLAGS) $< -o $@
+	$(EMCC) $(EMCCFLAGS) $(EMCCCFLAGS) $(JSFLAGS) $< -o $@
+
+%-asm.js: %.cpp
+	$(EMCC) $(EMCCFLAGS) $(EMCCCXXFLAGS) $(ASMJSFLAGS) $< -o $@
+
+%.js: %.cpp
+	$(EMCC) $(EMCCFLAGS) $(EMCCCXXFLAGS) $(JSFLAGS) $< -o $@
+
+%-asm.js: %.c
+	$(EMCC) $(EMCCFLAGS) $(EMCCCFLAGS) $(ASMJSFLAGS) $< -o $@
+
+%.js: %.c
+	$(EMCC) $(EMCCFLAGS) $(EMCCCFLAGS) $(JSFLAGS) $< -o $@
+
 
 define PROGRAM_template
-$(1)-all: $(1) $(1)-js.html $(1)-asmjs.html
+$(1)-all: $(1) $(1)-js.html $(1)-asmjs.html $(1).js $(1)-asm.js
 endef
 
 $(foreach prog, $(PROGRAMS), $(eval $(call PROGRAM_template, $(prog))))
