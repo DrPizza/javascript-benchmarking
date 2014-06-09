@@ -55,8 +55,7 @@ int main(int argc, char *argv[])
 	high_resolution_timer timer;
 
 	int min_depth = 4;
-	int max_depth = std::max(min_depth+2,
-		(argc == 2 ? atoi(argv[1]) : 20));
+	int max_depth = std::max(min_depth+2, (argc == 2 ? atoi(argv[1]) : 20));
 	int stretch_depth = max_depth+1;
 
 	// Alloc then dealloc stretchdepth tree

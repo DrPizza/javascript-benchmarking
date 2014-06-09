@@ -33,6 +33,7 @@
       <OmitFramePointers>true</OmitFramePointers>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <AdditionalOptions>/Qvec-report:2 /Qpar-report:2 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <OptimizeReferences>true</OptimizeReferences>

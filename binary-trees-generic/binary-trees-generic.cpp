@@ -20,7 +20,7 @@
 
 const size_t	LINE_SIZE = 64;
 
-struct Node 
+struct Node
 {
 	Node *l, *r;
 	int i;
